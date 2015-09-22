@@ -1,0 +1,29 @@
+Documentation for Train simulator, Lab1, Concurrent Programming TDA383
+
+Behroz Keyvannia
+Soroush D.Nejad
+
+Placement of sensors:
+The placement of sensors have been chosen depending on the every scenario. 
+In the crossing ways on the map, we have chosen to have 4 sensors on every possible track near the intersection to avoid collision. 
+On every turn to the main track, we have 2 sensors and one additional sensor that is between splitting tracks. 
+The last sensors are on every stations to stop the trains. This gives us a total of 18 sensors that is needed in the solution. 
+
+Choice of critical sections:
+Our choice of critical sections are the tracks which both trains can travel on. 
+Further more we have critical sections where on the crossings and the splitting of the tracks. 
+Our solution is designed that if we have a slow train which is in the critical section, owns that track till that specific train has left the critical section. 
+That prevents that a faster train can bump into the slow train. 
+
+Maximum train speed and why:
+We have chosen to have a maximum speed of 15.
+The reason to this particular choice is that we are aware that a train cannot stop exactly when we execute the function. 
+But the speed have been chosen because a margin is required that the train which have been asked to stop, does stop before the splitting of the track. 
+Otherwise it will stop on the critical section and enhance the chance for a collision. 
+
+How the solution is tested:
+The solution is tested with several speeds. One where train A is slower than train B and one where they have same speed. 
+We have tested this with multiple windows open and chosen different speed and observed if the trains will crash at any point. 
+Whenever a collision has been detected, we have been reading the outputs and found the error that caused this. 
+When we no longer have collisions in our code, we have chosen to be done with the task.
+Our test cases are: [1,15],[4,15],[7,15],[12,15],[15,15] where the first number is speed of train1 and the second number is speed of train2 in the testing. Tests ran several minutes.
